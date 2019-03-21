@@ -12,7 +12,7 @@ node {
     stage("Copy files"){
         sh "scp -r * ec2-user@${IP}:/home/ec2-user/"
     }
-    stage("Move files to /flask"){
+    stage("Move files to /flaskex"){
         sh "ssh ec2-user@${IP}   sudo mv /home/ec2-user/*  /flaskex/"
     }
     stage("Install requirements"){
