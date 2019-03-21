@@ -13,10 +13,10 @@ node {
         sh "scp -r * ec2-user@${IP}:/tmp/"
     }
     stage("Move files to /flask"){
-        sh "ssh ec2-user@${IP}   sudo mv /tmp/*  /flask/"
+        sh "ssh ec2-user@${IP}   sudo mv /tmp/*  /flaskex/"
     }
     stage("Install requirements"){
-        sh "ssh ec2-user@${IP}    sudo pip install -r /tmp/requirements.txt"
+        sh "ssh ec2-user@${IP}    sudo pip install -r /flaskex/requirements.txt"
     }
     stage("move service to /etc"){
         sh "ssh ec2-user@${IP}    sudo  /flaskex/flaskex.service /etc/systemd/system"
